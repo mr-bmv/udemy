@@ -2,6 +2,8 @@ const express = require('express');  // позволяет кидать данн
 const hbs = require('hbs');  // позволяет делать связи врутри {{}}
 const fs = require('fs'); //позволяет записывать в файлы
 
+const port = process.env.PORT || 3000;//для heroku, вместо статического порта 3000
+
 let app = express();
 hbs.registerPartials(__dirname + '/views/partials'); //что бы подключаться к папке с файлами
 
@@ -77,6 +79,6 @@ app.get('/bad', (req, res) => {
 });
 
 //запуск сервера
-app.listen(3000, () => {
-	console.log("Server is up on 3000!");
+app.listen(port, () => {
+	console.log(`Server is up on ${port}!`);
 });
