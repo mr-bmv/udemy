@@ -38,6 +38,7 @@ app.use(express.static(__dirname + '/public'));
 
 //список страниц
 //прописываем ссылку напряму
+/*
 app.get('/', (req, res) => {
 	//res.send('<h1>Hello Mike<h1/>')
 	res.send({
@@ -49,20 +50,20 @@ app.get('/', (req, res) => {
 		13],
 		date: '12.12.12'
 	})
-});
+});*/
 
 //ссылаемся на описыавающие файлы
+app.get('/', (req, res) => {
+	res.render('home.hbs', {
+		pageTitle: "Home Page",
+		welcome: "Hello !!!"
+	})
+});
+
 app.get('/about', (req, res) => {
 	res.render('about.hbs', {
 		pageTitle: "About New Page",
 		welcome: "This is About Page"
-	})
-});
-
-app.get('/home', (req, res) => {
-	res.render('home.hbs', {
-		pageTitle: "Home Page",
-		welcome: "Hello !!!"
 	})
 });
 
